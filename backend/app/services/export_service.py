@@ -96,7 +96,13 @@ def _generate_mock_alarm_data(config: ExportConfig) -> List[Alarm]:
         if not device:
             continue
 
-        reg = random.choice(device["registers"])
+        available_registers = device["registers"]
+        if config.register_names:
+            available_registers = [r for r in available_registers if r["name"] in config.register_names]
+        if not available_registers:
+            continue
+
+        reg = random.choice(available_registers)
         level_idx = random.choice([0, 1, 2])
         level = level_map[level_idx]
 

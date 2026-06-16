@@ -44,7 +44,7 @@
             </div>
           </div>
 
-          <div v-if="config.exportType === 'trend'" class="space-y-2">
+          <div class="space-y-2">
             <label class="text-xs text-gray-400 flex justify-between">
               <span>选择指标</span>
               <button @click="toggleAllRegisters" class="text-orange-400 hover:underline text-xs">
@@ -142,7 +142,7 @@
                 <span class="text-gray-500">设备数量:</span>
                 <span class="text-gray-300">{{ config.deviceIds.length }} 台</span>
               </div>
-              <div v-if="config.exportType === 'trend'" class="flex justify-between">
+              <div class="flex justify-between">
                 <span class="text-gray-500">指标数量:</span>
                 <span class="text-gray-300">{{ config.registerNames.length || '全部' }} 项</span>
               </div>

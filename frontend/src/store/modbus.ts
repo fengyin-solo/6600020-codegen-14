@@ -128,6 +128,9 @@ export const useModbusStore = defineStore('modbus', () => {
       a.timestamp >= config.startTime && a.timestamp <= config.endTime &&
       config.deviceIds.includes(a.deviceId)
     )
+    if (config.registerNames && config.registerNames.length > 0) {
+      filtered = filtered.filter(a => config.registerNames!.includes(a.register))
+    }
     if (config.alarmLevels && config.alarmLevels.length > 0) {
       filtered = filtered.filter(a => config.alarmLevels!.includes(a.level))
     }
